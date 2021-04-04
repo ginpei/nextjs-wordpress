@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  wp:
+    image: wordpress
+    ports:
+      - "8080:80"
+    volumes:
+      - ./.volumes/wp:/var/www/html
+      # - ./my-great-theme:/var/www/html/wp-content/themes/my-great-theme
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    volumes:
+      - ./.volumes/db:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password

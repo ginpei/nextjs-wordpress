@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "git-cz": "^4.7.6"
+  }
+}
